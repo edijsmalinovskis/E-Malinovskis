@@ -1,79 +1,145 @@
-body{
-    margin:0;
-    font-family: "Times New Roman"; 
-    color:#919191; 
-    background-color:#232323;
+/*
+  Uzliekam box-sizing visiem elementiem uz border-box
+  lai vieglak saprast elementu platumu
+  https://css-tricks.com/box-sizing/
+*/
+html {
+  box-sizing: border-box;
 }
-a{
-    outline:none; 
-    text-decoration:none;
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
-.row{
-    background-color:#FFFFFF;
-    height: 1000px;
+
+body {
+  margin: 0;
+  font-family: "Times New Roman";
+  color: #919191;
 }
-.header, .container{ 
-    width:960px; 
-    margin:0 auto;
+
+a {
+  outline: none;
+  text-decoration: none;
 }
-h1, h2 {
-    margin:0; 
-    padding:0; 
-    font-size:16px; 
-    font-weight:bold; 
-    font-style:normal; 
-    line-height:normal; 
-    text-transform:uppercase;
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: normal;
+  text-transform: uppercase;
 }
-.small_pic{
-    display:block; 
-    float:left; 
-    margin:30px 30px 0 0;
-    width:300px;
+
+img {
+  width: 100%;
 }
-.lastbox{
-    margin-right:0;
+
+/*
+  ja mums ir semantiskais elements header mes to varam izmantot seit
+  pa tieso nav obligati javeido jauna klase .header
+
+  pieskiram background-color tikai header un footer,
+  jo tie ir vienigie elemnti kam tas nepieciesams
+*/
+.header,
+footer {
+  background-color: #232323;
 }
-.header{
-    padding:40px;
+
+.hgroup {
+  margin: 10px 0;
 }
-.hgroup{
-    margin:0 0 20px 0;
+
+.header h1 {
+  font-size: 36px;
 }
-.header .hgroup h1, .header .hgroup h2{
-    font-weight:normal; 
-    text-transform:none;
+
+.header h2 {
+  font-size: 13px;
 }
-.header h1{
-    font-size:36px;
+
+.header nav {
+  float: right;
+  margin: -50px;
 }
-.header h2{
-    font-size:13px;
+
+.header nav li {
+  display: inline;
+  margin-right: 20px;
+  text-transform: uppercase;
 }
-.header nav{
-    float:right; 
-    margin:-50px;
+
+.header nav li a {
+  color: #c0bab6;
+  background-color: #232323;
 }
-.header nav li{
-    display:inline; 
-    margin-right:20px; 
-    text-transform:uppercase;
+
+.header nav li a:hover {
+  color: #ff9900;
+  background-color: #232323;
 }
-.header nav li a{
-    color:#C0BAB6; 
-    background-color:#232323;
+
+/*
+  izmantojam max-wdith lai uz mazakiem ekraniem lapa nesaluzt
+  un iecentrejam visu ar margin: 0 auto;
+*/
+.container {
+  padding: 5px;
+  max-width: 960px;
+  margin: 0 auto;
 }
-.header nav li a:hover{
-    color:#FF9900;
-    background-color:#232323;
-    }
-.container{
-    padding:30px;
+
+.container > img {
+  padding: 0 5px;
 }
-.container  ul{
-    margin:0; 
-    padding:0;
+
+/*
+  Hacks lai izvairitos no nevelamam atstarpem starp inline-block elementiem.
+  Uzliekam konteinerim kas satur musu tris mazos article blokus, font-size: 0
+  un pec tam katram blokam atseviski uzliekam sakotnejo fonta izmeru izmantojot
+  font-size: initial
+  https://css-tricks.com/fighting-the-space-between-inline-block-elements/
+*/
+.container > ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
 }
-.footer{
-    margin-left: 40px;
+
+/*
+  float var izmantot bet tas jau driz parversies par dinozauru
+  labak tad izmantot flexbox, css grid vai inline block
+  float ar medz radi problemas ja velamies novietot kaut ko zem
+  floatotiem blokiem
+
+  kar ari seit tomer nevajadzetu noradit fiksetu bloka platumu
+  jo ja ekrans samazinasies tad lapa sabruks
+*/
+.small_pic {
+  display: inline-block;
+  padding: 5px;
+  width: 33.33%;
+  font-size: initial;
+}
+
+footer {
+  padding: 15px;
+}
+
+/*
+ ja izmanto footer html5 elementu
+ tad var vienkarsi pa taisno temet uz to
+ 
+ footer p
+
+ bet nu .footer ar nav nepareizi :)
+*/
+.footer {
+  margin-left: 40px;
+  margin: 0;
 }
