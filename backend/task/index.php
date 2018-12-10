@@ -10,7 +10,8 @@
     <?php
     $masivs = array("pirmais", "otrais", "tresais", "ceturtais", "piektais");
     foreach ($masivs as $key => $value) {
-        print $key . " " . $value . "<br>";
+        print "<tb>" . $key . " " . $value . "<br>" . "</tb>";
+
     }
     ?>
 </body>
